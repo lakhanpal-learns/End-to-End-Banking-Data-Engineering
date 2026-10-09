@@ -1,0 +1,263 @@
+
+:root {
+    --primary: #142d4e;
+    --accent: #0d9488;
+    --background: #f4f7fb;
+    --surface: #ffffff;
+    --text: #172b4d;
+    --muted: #718096;
+    --border: #e6ebf2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 32px 5%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 30px;
+}
+
+.subtitle {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid #cceee7;
+    border-radius: 30px;
+    background: #effcf8;
+    color: #087f6e;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.status span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+}
+
+/* Main layout */
+
+main {
+    max-width: 1500px;
+    margin: auto;
+    padding: 30px 5%;
+}
+
+/* KPI cards */
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 26px;
+}
+
+.kpi-card,
+.panel {
+    min-width: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(20, 45, 78, 0.035);
+}
+
+.kpi-card {
+    padding: 22px 20px;
+    border-top: 3px solid var(--accent);
+}
+
+.kpi-card p {
+    margin: 0 0 16px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.kpi-card h2 {
+    margin: 0;
+    color: var(--primary);
+    font-size: clamp(20px, 2vw, 27px);
+    overflow-wrap: anywhere;
+}
+
+/* Dashboard panels */
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.panel {
+    padding: 24px;
+}
+
+.panel h3 {
+    margin: 0 0 22px;
+    color: var(--primary);
+    font-size: 16px;
+}
+
+.panel canvas {
+    display: block;
+    width: 100% !important;
+    height: 280px !important;
+}
+
+/* Daily transaction summary */
+
+.trend-summary {
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+}
+
+.trend-date {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.trend-total {
+    color: var(--primary);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.trend-caption {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.trend-bar {
+    height: 10px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #e6ebf2;
+}
+
+.trend-bar-fill {
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    background: var(--accent);
+}
+
+/* Error and footer */
+
+.error-message {
+    color: #b42318;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1100px) {
+    .kpi-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 25px 6%;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    main {
+        padding: 22px 5%;
+    }
+
+    .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .kpi-card {
+        padding: 18px 14px;
+    }
+
+    .chart-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .trend-total {
+        font-size: 36px;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 380px) {
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+}
