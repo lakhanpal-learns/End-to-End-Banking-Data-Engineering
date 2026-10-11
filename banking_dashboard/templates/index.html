@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Banking Analytics Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+        src="{{ url_for('static', filename='js/dashboard.js') }}"
+        defer
+    ></script>
+</head>
+
+<body>
+    <header class="header">
+        <div>
+            <p class="eyebrow">BANKING DATA PLATFORM</p>
+            <h1>Banking Analytics</h1>
+            <p class="subtitle">
+                Transaction and account overview
+            </p>
+        </div>
+
+        <span class="status">
+            <span></span>
+            Snowflake connected
+        </span>
+    </header>
+
+    <main>
+        <section class="kpi-grid">
+            <article class="kpi-card">
+                <p>Total Transactions</p>
+                <h2 id="total-transactions">—</h2>
+            </article>
+
+            <article class="kpi-card">
+                <p>Total Transaction Value</p>
+                <h2 id="total-value">—</h2>
+            </article>
+
+            <article class="kpi-card">
+                <p>Total Customers</p>
+                <h2 id="total-customers">—</h2>
+            </article>
+
+            <article class="kpi-card">
+                <p>Total Accounts</p>
+                <h2 id="total-accounts">—</h2>
+            </article>
+
+            <article class="kpi-card">
+                <p>Average Transaction</p>
+                <h2 id="average-value">—</h2>
+            </article>
+        </section>
+
+        <section class="chart-grid">
+            <article class="panel">
+                <h3>Daily Transaction Summary</h3>
+                <div id="trend-summary" class="trend-summary">
+                    <p class="trend-caption">Loading transaction data...</p>
+                </div>
+            </article>
+
+            <article class="panel">
+                <h3>Transaction Value by Type</h3>
+                <canvas id="type-chart"></canvas>
+            </article>
+
+            <article class="panel">
+                <h3>Transaction Status</h3>
+                <canvas id="status-chart"></canvas>
+            </article>
+
+            <article class="panel">
+                <h3>Accounts by Type</h3>
+                <canvas id="account-chart"></canvas>
+            </article>
+        </section>
+
+        <p id="error-message" class="error-message" role="alert"></p>
+
+        <footer class="footer">
+            <span>Banking Analytics Platform</span>
+            <span>Powered by Snowflake</span>
+        </footer>
+    </main>
+</body>
+</html>
